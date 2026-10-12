@@ -1,0 +1,4 @@
+interface:
+  display_name: "Live2D ×À³è¹¤³Ì"
+  short_description: "Build and ship layered Live2D desktop companions"
+  default_prompt: "Use $live2d-desktop-pet to inspect this project and build a responsive desktop companion."
