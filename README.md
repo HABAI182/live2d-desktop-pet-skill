@@ -59,4 +59,4 @@ python skills/live2d-desktop-pet/scripts/inspect_pet.py /path/to/project --model
 
 ## 许可与版本
 
-MIT，见 [LICENSE](LICENSE)。首版 `v0.1.0`；变更见 [CHANGELOG.md](CHANGELOG.md)。
+MIT，见 [LICENSE](LICENSE)。当前版本 `v0.1.1`；首版 `v0.1.0` 保留。变更见 [CHANGELOG.md](CHANGELOG.md)。
