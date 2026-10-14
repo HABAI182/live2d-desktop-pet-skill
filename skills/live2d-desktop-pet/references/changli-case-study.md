@@ -1,33 +1,68 @@
-# Changli engineering case study
+# 长离实际案例：从底稿到0.7.15发行
 
-This is a project-specific example, not a template for all characters.
+这是项目案例，不是所有角色的默认配置。代码使用 React/TypeScript/Vite、Tauri/Rust 和真实 Cubism 运行时；模型为 v71，存在明确区分的原生源与运行时修复。
 
-The app uses React/TypeScript/Vite with Tauri/Rust native integration and a real Cubism runtime. Its desk-facing character has a keyboard hand, mouse hand, large head, ornaments and a small phoenix. Supplied art controls the character identity; creator references control desired liveliness without importing their models.
+## 1. 起稿：改变范式而非叠形容词
 
-## Useful source boundaries
+原始文字记录中，两轮“不够Q/没变”后，创作方向从普通半身插画改为大头、极少躯干、圆短手、键鼠接触与简背景，随后用户认可。最早三张像素未随v3输入包归档，不能拿后续样张冒充。样张中可见的珊瑚粉/白发、金红眼、发饰与小凤凰用于辨识长离；其他角色只能借鉴构图。
 
-- `src/pet/presentation.ts`: semantic actions, state snapshots and the one-hand keyboard policy.
-- `src/renderer/live2d/Live2DAdapter.ts`: semantic parameter mapping, per-event motion retriggering, expression resolution and renderer lifecycle.
-- `src/renderer/live2d/CubismBackend.ts`: Core, native model parameters and custom runtime deformation.
-- `HandDrawOrder.ts`: opt-in hands placed after torso anchors while unrelated drawables keep their relative order.
-- `JawRepair.ts`: missing skin filled from the native face texture and bound to existing UV triangles; cached topology follows current deformation.
-- `MouseMesh.ts`, `MouseRegionRenderer.ts`: mouse reconstruction and displacement shared with hand/cable.
-- `FaceEffects.ts`: runtime expression/effect visuals separate from editable source rig.
-- `src/overlay/keyOverlay.ts`: ephemeral physical labels, 680 ms lifetime, not saved input history.
-- `src/settings/SettingsPanel.tsx` and `scalePreview.ts`: draft/coalesced continuous scale updates and final persistence.
-- `src-tauri/src/input.rs`: privacy-preserving semantic conversion and transient physical labels.
-- `src-tauri/src/pet_menu.rs`, `desktop.rs`, `windows.rs`: native windows, menu, desktop placement and lifecycle.
+## 2. 分层：手移动揭露了什么
 
-At the time this skill was made, the app version was 0.7.12, the current runtime was the v71 candidate, and the editable recovery file was `authoring/ChangliReferenceRepair-v71-verified.cmo3`. Verify these paths on every resumed task; version names are not evidence of visual acceptance.
+用户反复指出尾羽缺角、手部残边、脸缺一块、鼠标镂空、补脸不自然。根因不全是“抠图不干净”，而是可动手离开后底层没有完整物体，以及补片没有跟随当前网格。
 
-## Lessons
+工程采用完整鼠标底层、袖口前后拆分、局部手层绘制优先级与基于原脸纹理/UV的补片。动态极值揭露的问题不能仅用中性截图验收；运行时补片没有写回CMO3时单独记录。
 
-1. All keyboard regions belong to the keyboard hand. Left/right keyboard zones do not mean anatomical left/right hand ownership; add depth and Space separately.
-2. A moving mouse hand needs a complete mouse beneath it. Moving a keyboard hand needs continuous facial/torso underpaint. A neutral-pose cutout is insufficient.
-3. Reset input residue and identify repeated actions by timestamp, not action ID alone. Restore default expressions when a requested face has no authored mapping.
-4. Gaze and blink are coupled to expression openness; closed eyes for sleep are valid, closed eyes mislabeled as happy are a product mismatch.
-5. The UI, native priorities and drag bounds are part of the pet experience. A pretty browser preview does not validate global input, focus or monitor placement.
-6. Runtime patch meshes, masks, expressions and offsets do not prove the editable Cubism project contains those improvements. Save their separate provenance.
-7. Keep app delivery version archives, save progress at material milestones and spend verification effort on the visible/native problem being changed.
+## 3. 输入需求真的改变过
 
-Promotional videos and their production tools are intentionally excluded from this skill.
+早期是“一手负责所有键盘，另一手鼠标”，之后扩展左右/前后四区与Space；用户后来明确允许鼠标手离开鼠标，改为两手分别响应实体键盘左右区，并修正面对观众时的镜像关系。
+
+因此旧skill中“所有键盘始终属于同一手”已经过时。应保留**可选的单手模式经验**，让当前用户需求决定归属，不把历史实现写成定律。
+
+## 4. 长按：动作与提示是两个问题
+
+最初只增加 repeat 元数据和“重复浮现”开关，提示不反复出现，但桌宠仍抖。真实重复还会更新 pressedAt、动作起点与头部弹簧。
+
+0.7.15 将物理down、系统repeat、up分开：首次按下弹动、持续保持、松开回位；同手多个键按住时，松开一个仍维持其它键。提示默认开，默认上限1（可调1–6），长按重复默认关。实际提示寿命为1500ms，旧文档680ms已失效。
+
+测试曾误关真实用户提示，用户反馈后读取持久化配置、恢复开启并重启。这是测试流程错误，不应隐藏：恢复偏好、finally和最终可见状态检查必须纳入后续工作。
+
+## 5. 鸣潮：菜单可读输入不等于实际玩法通过
+
+普通权限候选中，登录/设置能响应，实际控制角色时只剩眨眼。聚合计数区分了渲染仍工作与输入缺失，并发现更高完整性级别的前台进程。
+
+管理员候选 `0.7.15-local.2` 由用户在鸣潮无边框模式实际控制角色时确认键鼠与手部正常。正式0.7.15保留兼容修复，按用户要求默认高权限启动，另加长按与显示上限；其最终EXE做了启动、设置持久化、实际Cubism参数保持/释放等核验，其中合成事件不冒充再次完成游戏硬件测试。
+
+此结果只证明所记录的构建/场景，不保证所有游戏；它也不要求其他桌宠默认管理员。
+
+## 6. 窗口与审美也是产品功能
+
+菜单需要在主体旁边、可拖动、不因短暂失焦消失，并能由外部按下关闭。贴底要考虑透明留白；拖动键放键盘右下并缩小。按键浮显、气泡与主体统一缩放，设置字号可调。
+
+设置逐步收敛到规整分类、统一字阶、弱装饰和角色色彩，不再把焦点计时等无关功能堆给桌宠。用户要求图标使用原图时保留角色，而非做不相关的抽象符号。
+
+## 7. Mac收录：已有源码不必再合并
+
+2026-10-14收录上游macOS0.7.15时，首次直接推送被拒；fetch后确认源码已通过PR#1合入macos-port。沿用该结果，独立Mac标签指向原发布真实提交，四个原始安装/校验附件逐字节转存并核对。
+
+Windows核验了ZIP CRC、ARM64 Mach-O、plist版本、最低系统和DMG尾；没有将这些写成新Mac版本运行验收。Windows、旧Mac与新Mac分别留档，旧发布资产ID/哈希保留。
+
+## 主要模块与恢复线索
+
+| 模块 | 作用 |
+| --- | --- |
+| `src/pet/KeyboardHands.ts` | 当前按住集合、两手所有权、落点、平滑保持与释放 |
+| `src/pet/presentation.ts` | 语义事件、表情/气泡、独立动作通道与弹簧 |
+| `src/renderer/live2d/Live2DAdapter.ts` | 当前快照到模型参数，冲突motion和表情切换 |
+| `src/renderer/live2d/CubismBackend.ts` | Core、模型参数、裁剪/绘制和运行时变形 |
+| `HandDrawOrder.ts`、`JawRepair.ts` | 指定手层排序和随原生网格变化的补片 |
+| `MouseMesh.ts`、`MouseRegionRenderer.ts`、`FaceEffects.ts` | 完整鼠标联动及独立运行时表情视觉 |
+| `src/overlay/keyOverlay.ts` | 短期浮显、独立repeat开关与数量上限 |
+| `src/settings/SettingsPanel.tsx`、`scalePreview.ts` | 分类设置、连续预览、合并写入与最终保存 |
+| `src-tauri/src/input.rs`、`input_merge.rs` | 原生观察、状态去重、释放和聚合诊断 |
+| `pet_menu.rs`、`desktop.rs`、`windows.rs` | 独立窗口、菜单、可见边界和生命周期 |
+
+Windows真实源码以0.7.15标签为准；Mac真实源码、日期和来源见 [source-provenance.md](source-provenance.md)。这些路径是案例线索，其他工程先检查实际入口。
+
+## 尚未宣称完成的部分
+
+精细原生表情、完整抬臂动作以及袖口/发束最终原生美术没有全部通过最终验收。运行时效果可用不代表所有改动已写回可编辑源，也不宣称达到参考作者同等完成度。宣传视频不在此技能范围。

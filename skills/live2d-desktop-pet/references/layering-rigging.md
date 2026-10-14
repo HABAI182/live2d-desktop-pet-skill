@@ -8,6 +8,8 @@ Create a dated candidate and checksum inventory. Keep the last working editable 
 
 ## Separate complete objects
 
+Start from a stable base and an occlusion map. A white-background illustration is not a transparent asset, and isolated visible fragments are not complete layers. Keep layer IDs, parent/side/driver, hidden-art coverage, blend/mask and version in an asset contract so the exporter and renderer agree. Adapt [layer-contract.json](../templates/layer-contract.json); this is a planning template, not an official Cubism format.
+
 Typical desk-facing layers, back to front:
 
 1. Rear hair, tails, accessories and body underpaint.
@@ -31,11 +33,17 @@ A flattened reference does not contain art behind a hand. Removing the hand alon
 
 For runtime underpaint, bind patch vertices to the native mesh (e.g. barycentric coordinates in UV triangles) so the patch follows head turns and spring deformation. Cache static topology instead of re-searching triangles every frame.
 
+Keep each hand's palm, cuff and rear sleeve separable where motion exposes their joint. Repair the sleeve/torso underneath rather than cutting it out. A long tail or hair repair needs a plausible continuous contour and thickness, not a stretched cropped edge. Inspect clean alpha on both dark and light backgrounds; do not erase the original outline as if it were residue.
+
 ## Rig
 
 Separate front/back hair, ornament pendants, tails/wings, hand presses/reaches, eye openness/gaze, head angle/shape and body breath. Give deformations enough art beneath them to remain filled.
 
 Use small parameter ranges initially, then inspect combined extremes. Test keyboard reach + depth + head bounce + eye gaze together; independent single-parameter checks can miss tears.
+
+Suggested control coverage, adapted to the rig: head angle/translation/soft compression; independent eye openness and shared-target gaze; mouth openness/form; hand press plus lateral/depth reach; hair roots/tips; pendant swing; companion body/wing/tail/flame channels. Put pivots near attachment roots. Mesh density follows deforming boundaries, not a uniform high-poly goal.
+
+Export a real runtime package: model3 points to its actual moc3, textures and optional physics/motions/expressions. Check group/parameter IDs, mask relationships, straight/premultiplied-alpha expectations, drawable ordering and resource disposal in the actual renderer. A manifest that resolves every file still does not prove the model looks correct.
 
 Attach physical secondary motion to stable drivers and tune damping, gravity and delay. The character should settle after input rather than oscillate forever.
 

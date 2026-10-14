@@ -15,9 +15,17 @@
 | 编辑器自动操作 | 已授权的电脑操作 / UI Automation | 先观察窗口与文档，再操作；应用权限与文件权限不同 |
 | 打包与留档 | 项目构建脚本、Tauri CLI、SHA256、Git/gh | 不覆盖旧文件；不把大依赖/缓存/私人日志推到 Git |
 
+## 本包可直接使用的助手
+
+- `inspect_pet.py PROJECT [--model ...]`：只读工程与引用盘点，报告非对象JSON/字段类型/越界引用；不判断画面美术。
+- `keyboard_layout.py --view front-facing-pet --output-dir NEW_DIR`：生成标准60%示例的透视SVG与物理/屏幕区坐标；不会直接改图或提供完整系统键码映射。
+- `verify_delivery.py DIRECTORY MANIFEST`：核对 list/files/assets 格式的本地SHA256与体积，拒绝越界引用；不写清单，也不上传发布。
+
+命令路径相对skill目录。不要把辅助脚本的文件验证结果升级成Core、浏览器或目标平台实机验收。
+
 ## 模型 CLI 的正确用途
 
-已安装 `cli-anything-live2d` 时，先看它的 SKILL/help，优先 inspect、validate、deps、textures、physics、param-list、manifest 与 diff。
+已安装 `cli-anything-live2d` 时，先看它的 SKILL/help，优先 inspect、validate、deps、textures、physics、param-list、manifest 与 diff。它的 `init`、gen-motion、gen-expr 生成模板/预设，并不生成由原画绑定的真实moc3。不要把“all without Editor”理解成完整自动建模。
 
 orphan 报告只是“这个入口没引用”，不等于整个工程无用。一个贴图可能被另一入口、编辑器源、修复脚本或备用模型引用。删除前搜索项目引用并保存备份。
 
@@ -38,6 +46,14 @@ JSON 中的 motion/expression 引用、淡入淡出或参数预设可以使用 C
 若 Java 承载 Cubism，工具可能将它识别为 java 而不是 Cubism。文字同意不保证工具已放行；文件“完全访问”也不证明某应用可以被电脑操作。解释实际报错，然后继续不依赖该工具的工作。
 
 本机没有相关 MCP 时明确说没有。不要把能改 model3 JSON 的服务宣传成能自动完成 Cubism 美术绑定的 MCP，也不要用未核验的 GitHub 项目执行不透明脚本。
+
+发现或安装新skill/MCP应由实际任务需要驱动：先查已安装能力和帮助，只有缺能力时再找官方接口或可信仓库。不要为了工具数量安装重复插件；用户已经授权的常规动作继续做，真实应用权限拒绝则说明准确拦截层，不借另一通道绕过限制。
+
+## 诊断与运行效率
+
+先用聚合输入/桥接/帧计数缩小问题，再用参数快照或相关截帧证明画面；不要先录很长的视频。建立能复现的同一场景，已通过的检查在代码未变时不循环重跑。
+
+源码与网格拓扑索引可缓存，动态顶点/参数随帧更新；设置写入合并，GUI只做真正需要编辑器的步骤。SDK/Core、Python、Node、Git、gh的实际路径先检测，示例路径不可写死为某个Windows账户。
 
 ## 文件和磁盘
 

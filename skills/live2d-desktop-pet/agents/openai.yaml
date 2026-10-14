@@ -1,4 +1,4 @@
 interface:
-  display_name: "Live2D 桌宠工程"
-  short_description: "Build and ship layered Live2D desktop companions"
-  default_prompt: "Use $live2d-desktop-pet to inspect this project and build a responsive desktop companion."
+  display_name: "Q版 Live2D 桌宠全流程"
+  short_description: "从底稿生图、精准修补到 Cubism、原生输入和分平台交付"
+  default_prompt: "使用 $live2d-desktop-pet，先判断当前处于底稿、绑定、工程修复还是发布阶段，保留已认可成果并继续完成可验证的桌宠。"

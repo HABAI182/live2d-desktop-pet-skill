@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "savedAt": null,
+  "projectVersion": null,
+  "sourceCommit": null,
+  "activeModelEntry": null,
+  "editableSource": null,
+  "runtimeRepairsSeparateFromSource": [],
+  "referenceAndBaseProvenance": [],
+  "completed": [],
+  "verification": {
+    "files": "pending",
+    "core": "pending",
+    "browser": "pending",
+    "windowsNative": "pending",
+    "macNative": "pending",
+    "userReportedTests": []
+  },
+  "deliveryDirectory": null,
+  "checksumManifest": null,
+  "releaseUrl": null,
+  "settingsRestoredAndChecked": "pending",
+  "knownLimitations": [],
+  "nextExactTask": null
+}

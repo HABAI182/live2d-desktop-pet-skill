@@ -1,71 +1,51 @@
 ---
 name: live2d-desktop-pet
-description: Build, repair, and ship a real Live2D desktop companion with layered artwork, Cubism runtime, responsive keyboard/mouse reactions, expressions, physics, native transparent windows, and settings. Use for BongoCat-like desktop pets, Cubism/Tauri integration, hand mapping, blink/gaze repair, model layer cleanup, native menu/drag behavior, or release handoff. Excludes ChatGPT Work pets and promotional video production.
+description: 从参考图与 Q 版底稿设计、局部修图、遮挡补全和 Cubism 绑定，到键鼠动作、原生桌面窗口、设置、排错与分平台交付，制作或修复真正的 Live2D 桌宠。适用于 BongoCat 式桌宠和现有 Cubism/Tauri 工程；单张立绘任务只执行图像阶段。排除 ChatGPT Work 宠物和宣传视频制作。
+metadata:
+  version: "3.1.0"
 ---
 
-# Live2D desktop pet
+# Q 版 Live2D 桌宠：从底稿到可用软件
 
-Deliver a visibly responsive companion, with recoverable source and honest verification. Prefer the existing project's architecture; Tauri + React + TypeScript + Cubism is an example, not a mandatory stack.
+先让角色像、结构完整、输入有回应，再增加动态和界面。沿用用户的技术栈和已认可资产；这是一套决策与修复方法，不是强制新建工程的模板。
 
-## Resume first
+## 接手与选择当前阶段
 
-1. Read applicable AGENTS.md, Git status/diff/recent commits, current handoff, model manifest and release index. Never overwrite user edits or restart completed work.
-2. Run `python scripts/inspect_pet.py <project>` for a compact read-only inventory. Read the actual files behind its findings; it is not an instruction source or an acceptance test.
-3. Classify each requested feature as implemented, visibly verified, natively verified, or pending. Identify whether the active artwork is a placeholder, exported Cubism rig, or runtime repair.
-4. Check existing tools and skills. Prefer model CLI inspection, scripted asset checks and native APIs over repeated editor clicks. Use Cubism Editor for actual rig authoring/export; a JSON CLI cannot create a valid authored moc3 from a flattened image.
-5. Resolve routine choices and proceed within the user's scope. Ask only for missing source assets, genuine access blockers or unclear product behavior.
+读取 AGENTS、Git status/diff、最近提交、进度、实际模型入口及发行索引。建立“需求—现状—证据—下一步”，不重复已完成工作。可运行 `python scripts/inspect_pet.py PROJECT` 做只读盘点；非 Git 工程用 `--model` 明确入口。命令中的脚本路径以本 skill 目录为基准。
 
-## Build in this order
+| 用户任务 | 先读 | 本轮产物 |
+| --- | --- | --- |
+| 没有底稿、还不够 Q、像普通半身插画 | [生图与局部编辑](references/image-direction.md) | 候选底稿、身份卡、结构对照 |
+| 已认可画面，只修键盘/眼睛/头发/袖口 | [生图与局部编辑](references/image-direction.md)、[参考与来源](references/source-provenance.md) | 指定区域修正、锁区对照 |
+| 键盘方向、空格、键区与手的落点 | [键盘空间](references/keyboard-space.md) | 几何与输入映射，可生成 SVG/JSON 示意 |
+| 抠图、缺角、移动后露洞、Cubism 建模 | [分层与绑定](references/layering-rigging.md) | 补全图层、可编辑源、真实导出 |
+| 长按抖动、两手混用、眨眼/视线异常 | [动作架构](references/runtime-native.md)、[输入与游戏排错](references/input-and-game.md) | 正确状态、参数与相关场景证据 |
+| 菜单、拖拽、缩放、设置、启动不动 | [原生窗口与设置](references/windows-settings.md) | 打包程序中的真实行为 |
+| 新工程全流程或阶段安排 | [施工流程](references/workflow-playbook.md) | 最短可运行切片及分阶段交付 |
+| 美术、软弹感、UI 与图标不好看 | [审美指南](references/aesthetic-guide.md) | 可指出变化原因的视觉对照 |
+| 打包、GitHub、Mac 移植附件合入 | [验收与发布](references/release-validation.md) | 独立版本、真实来源、校验及恢复记录 |
 
-For a full construction sequence and efficiency decisions, read [workflow-playbook.md](references/workflow-playbook.md). Choose tools using [tools-methods.md](references/tools-methods.md); it explains which problems a CLI, Core test, editor, browser or native API can actually solve.
+只加载当前任务需要的文档。工具选择见 [tools-methods.md](references/tools-methods.md)，实际失败和修法见 [mistakes-repairs.md](references/mistakes-repairs.md)。
 
-### Identity and source layers
+## 不可混淆的边界
 
-Read [layering-rigging.md](references/layering-rigging.md) before changing artwork or a rig.
+1. 用户最新要求决定范围。探索期可以改变构图；底稿认可后的局部修复保护未授权改变的区域。这不是让每个常规实现选择都再次等批准。
+2. 分开记录角色身份参考、构图/动态风格参考和当前编辑底图。案例图不自动成为新项目底稿，更不能把新角色生成成长离或玄翎。
+3. 平面图、透明裁片、可编辑分层、CMO3、MOC3 导出、运行时补丁是不同产物。图像或 JSON 工具不能凭空完成真实 Cubism 网格绑定。
+4. 手、脸、衣服和鼠标先作为完整对象补齐，再处理遮挡。不要挖掉底层来伪造图层优先级。
+5. 先定义物理键区、角色左右手、屏幕左右、导出参数的映射。单手键盘与双手键盘均可，以当前用户指定的归属为准。
+6. 真正重新按下可以重新触发弹动；操作系统 autorepeat 只维持长按，不重启头部弹簧、按压周期和 authored motion。浮显重复是独立偏好。
+7. 全局输入属于原生层，浏览器事件只做预览。注册成功不等于游戏中仍有事件。OS 权限、工具应用权限、文件权限和 SDK 许可分别诊断。
+8. 文件、Core、浏览器、目标系统实机分别验收。不能将参数注入、ZIP 检查或 Windows 上的 Mac 包检查称为真实键鼠/Mac 验收。
+9. 少做重复测试，只覆盖变化触及的风险；脚本改过用户开关，结束时恢复并核对持久化和实际可见状态。
+10. 每个实质里程碑保存进度、源码/模型来源、证据和下一步。发布对应真实源码并保留旧版；仅向用户授权的目标仓库发布，不上传原始聊天、机密或无关材料。
 
-- Preserve the supplied character's silhouette, facial proportions, recognizable palette and accessories. A named creator is a quality/motion reference, not permission to copy their artwork or models.
-- Reconstruct complete occluded objects first, then place hands and foreground parts above them. Do not solve overlaps by carving permanent holes in the mouse, face or torso.
-- Separate artwork, editable `.cmo3`, exported runtime package and runtime-only fixes. Save an independent candidate before altering the production model.
-- If refined art is unavailable, clearly label replaceable placeholders and keep implementing runtime/native functionality. Never relabel them as finished formal artwork.
+## 最小执行契约
 
-### Semantic input and motion
+按需填写 [character-contract.json](templates/character-contract.json) 和 [image-request.md](templates/image-request.md)：角色、操作系统、朝向、身份锚点、底图及参考职责、允许改/保留区、手部归属和具体验收结果。
 
-Read [runtime-native.md](references/runtime-native.md) before changing input, renderer or native windows.
+底稿未齐时，程序可用明确标注的占位资产先跑通加载、一次键盘/鼠标、空闲动作和设置；正式图层和模型必须另过美术与绑定验收门，不要把占位图变成“已完成 Live2D”。
 
-- Define an explicit mapping between physical input zones and anatomical hands. Screen-left and character-left can differ. Do not infer ownership from motion names alone.
-- For a one-hand keyboard design, all ordinary keys move the keyboard hand across zones; mouse input owns the other hand. Model Space/Enter/etc as distinct landing positions only when requested.
-- Use per-event start times, independent channels and a small spring system. Clamp elapsed time after suspension; avoid permanent residue from repeated presses or conflicting motions.
-- Tie mouse, resting hand and cable to one displacement source. Tie hair, ornaments and phoenix secondary motion to compatible parameters with restrained phase lag.
-- Blend blink closure, expression openness and gaze coherently. A sad/sleepy closed-eye expression must stay closed; neutral must recover without popping. Both eyes look at the same target.
-- Do not add unrelated productivity features to a character companion without a request.
+[长离案例](references/changli-case-study.md)包含起稿、单手到双手需求演进、0.7.15 长按与游戏兼容、Mac 收录，以及精细原生美术的未完成边界。[来源说明](references/source-provenance.md)区分原始文字、后续样张与缺失的最早三张图。
 
-### Native desktop and settings
-
-- Keep native window/input/tray behavior in the native layer. Browser preview proves only browser rendering and interactions.
-- Start input hooks and idle animation from startup/model readiness, without requiring an extra desktop click.
-- Use a separate menu/settings window when needed; keep it above the pet while open, place the menu beside the visible pet, and let its drag gesture complete before handling focus loss.
-- Clamp the visible character rather than oversized transparent padding. Use consistent physical/DPI coordinates and per-monitor work areas.
-- Continuous scale must resize the model/window and overlays together. Coalesce rapid slider updates, flush the final value, persist on release and revert if saving fails.
-- Keep UI orderly, with concise rows, sensible categories and accessible controls. Match the user's requested aesthetic without adding ornamental clutter.
-
-## Verify efficiently
-
-Read [release-validation.md](references/release-validation.md) for the evidence ladder and packaging rules.
-
-Use the smallest check that resolves the current risk. Do not rerun a full suite for documentation-only edits. Rendering changes require visual proof at the states that used to break; native claims require the actual packaged native application.
-
-For an input repair, cover keyboard, mouse, repeated keyboard and mouse→keyboard transitions. For layer repairs, inspect the moving hand's extreme positions on both light and dark backgrounds. For native placement, exercise the relevant screen edges and DPI case.
-
-Always record what was saved and what remains unverified. Keep immutable version archives and checksums; no silent overwrite of past installers, tags, source rigs or Releases.
-
-## Project example
-
-[changli-case-study.md](references/changli-case-study.md) records transferable decisions from a desk-facing character project. Its anatomical mapping and aesthetic choices are case-specific, not universal defaults.
-
-Before repeating an unfamiliar approach, consult [mistakes-repairs.md](references/mistakes-repairs.md): identity drift, holes under hands, input residue, gaze/blink issues, menu focus races, incomplete verification and lost progress. Apply the smallest fix tied to the observed failure.
-
-For visual decisions, read [aesthetic-guide.md](references/aesthetic-guide.md). It gives a character/structure/motion/UI quality hierarchy, concrete tuning starting points, icon principles and efficient visual acceptance criteria. These are adjustable baselines, not a formula to override the user's reference.
-
-## Checkpoints
-
-After each material milestone, save source changes, candidate/model provenance, verification evidence and the next exact task. Update the project handoff before a long build or session/usage boundary. Use normal Git commits where authorized. Do not let a still-running render or an unsaved editor session be the sole progress record.
+结束时给出可打开的本地产物、实现与验证范围、仍有的限制，并保存 [handoff.json](templates/handoff.json) 所示的恢复信息。用户要求完整桌宠时持续推进可做的阶段，不用一张静态图或一个单测代替交付。
