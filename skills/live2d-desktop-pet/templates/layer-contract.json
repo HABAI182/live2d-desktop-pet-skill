@@ -1,0 +1,33 @@
+{
+  "schema": "workflow-layer-contract-1",
+  "purpose": "Planning template only; not a Cubism model3 or PSD format",
+  "baseImage": null,
+  "baseRevision": null,
+  "coordinateSystem": {"origin": "top-left", "units": "source-image-pixels"},
+  "layers": [
+    {
+      "id": "mouse-complete",
+      "sourceFile": null,
+      "hiddenAreaPainted": "pending",
+      "alphaEdgeChecked": "pending",
+      "drivers": ["shared-mouse-translation"],
+      "drawAfter": [],
+      "drawBefore": ["mouse-hand"],
+      "motionExtremeChecks": []
+    },
+    {
+      "id": "mouse-hand",
+      "sourceFile": null,
+      "hiddenAreaPainted": "pending",
+      "alphaEdgeChecked": "pending",
+      "drivers": ["shared-mouse-translation", "independent-hand-press"],
+      "drawAfter": ["mouse-complete"],
+      "drawBefore": [],
+      "motionExtremeChecks": []
+    }
+  ],
+  "editableRig": null,
+  "exportedRuntimeEntry": null,
+  "exportSourceRevision": null,
+  "runtimeOnlyRepairs": []
+}

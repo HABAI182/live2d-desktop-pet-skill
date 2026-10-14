@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="420" viewBox="0 0 1040 420">
+<rect width="1040" height="420" fill="#fffaf5"/>
+<g font-family="Arial,sans-serif" text-anchor="middle" fill="#483d3b">
+<text x="520" y="36" font-size="24">PET SIDE / space row</text>
+<polygon id="Escape" points="986.59,347.66 929.64,347.66 919.19,300.34 974.69,300.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="952.53" y="329.00" font-size="15">Esc</text>
+<polygon id="Digit1" points="924.00,347.66 867.05,347.66 858.19,300.34 913.70,300.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="890.74" y="329.00" font-size="15">1</text>
+<polygon id="Digit2" points="861.42,347.66 804.46,347.66 797.20,300.34 852.71,300.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="828.95" y="329.00" font-size="15">2</text>
+<polygon id="Digit3" points="798.83,347.66 741.87,347.66 736.21,300.34 791.71,300.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="767.16" y="329.00" font-size="15">3</text>
+<polygon id="Digit4" points="736.24,347.66 679.29,347.66 675.22,300.34 730.72,300.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="705.37" y="329.00" font-size="15">4</text>
+<polygon id="Digit5" points="673.65,347.66 616.70,347.66 614.23,300.34 669.73,300.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="643.58" y="329.00" font-size="15">5</text>
+<polygon id="Digit6" points="611.07,347.66 554.11,347.66 553.24,300.34 608.74,300.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="581.79" y="329.00" font-size="15">6</text>
+<polygon id="Digit7" points="548.48,347.66 491.52,347.66 492.25,300.34 547.75,300.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="520.00" y="329.00" font-size="15">7</text>
+<polygon id="Digit8" points="485.89,347.66 428.93,347.66 431.26,300.34 486.76,300.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="458.21" y="329.00" font-size="15">8</text>
+<polygon id="Digit9" points="423.30,347.66 366.35,347.66 370.27,300.34 425.77,300.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="396.42" y="329.00" font-size="15">9</text>
+<polygon id="Digit0" points="360.71,347.66 303.76,347.66 309.28,300.34 364.78,300.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="334.63" y="329.00" font-size="15">0</text>
+<polygon id="Minus" points="298.13,347.66 241.17,347.66 248.29,300.34 303.79,300.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="272.84" y="329.00" font-size="15">-</text>
+<polygon id="Equal" points="235.54,347.66 178.58,347.66 187.29,300.34 242.80,300.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="211.05" y="329.00" font-size="15">=</text>
+<polygon id="Backspace" points="172.95,347.66 53.41,347.66 65.31,300.34 181.81,300.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="118.37" y="329.00" font-size="15">Back</text>
+<polygon id="Tab" points="973.51,295.66 887.74,295.66 878.08,248.34 961.61,248.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="925.23" y="277.00" font-size="15">Tab</text>
+<polygon id="KeyQ" points="882.26,295.66 826.90,295.66 818.85,248.34 872.75,248.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="850.19" y="277.00" font-size="15">Q</text>
+<polygon id="KeyW" points="821.43,295.66 766.07,295.66 759.61,248.34 813.52,248.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="790.16" y="277.00" font-size="15">W</text>
+<polygon id="KeyE" points="760.59,295.66 705.24,295.66 700.37,248.34 754.28,248.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="730.12" y="277.00" font-size="15">E</text>
+<polygon id="KeyR" points="699.76,295.66 644.40,295.66 641.14,248.34 695.04,248.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="670.09" y="277.00" font-size="15">R</text>
+<polygon id="KeyT" points="638.93,295.66 583.57,295.66 581.90,248.34 635.81,248.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="610.05" y="277.00" font-size="15">T</text>
+<polygon id="KeyY" points="578.10,295.66 522.74,295.66 522.67,248.34 576.57,248.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="550.02" y="277.00" font-size="15">Y</text>
+<polygon id="KeyU" points="517.26,295.66 461.90,295.66 463.43,248.34 517.33,248.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="489.98" y="277.00" font-size="15">U</text>
+<polygon id="KeyI" points="456.43,295.66 401.07,295.66 404.19,248.34 458.10,248.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="429.95" y="277.00" font-size="15">I</text>
+<polygon id="KeyO" points="395.60,295.66 340.24,295.66 344.96,248.34 398.86,248.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="369.91" y="277.00" font-size="15">O</text>
+<polygon id="KeyP" points="334.76,295.66 279.41,295.66 285.72,248.34 339.63,248.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="309.88" y="277.00" font-size="15">P</text>
+<polygon id="BracketLeft" points="273.93,295.66 218.57,295.66 226.48,248.34 280.39,248.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="249.84" y="277.00" font-size="15">[</text>
+<polygon id="BracketRight" points="213.10,295.66 157.74,295.66 167.25,248.34 221.15,248.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="189.81" y="277.00" font-size="15">]</text>
+<polygon id="Backslash" points="152.26,295.66 66.49,295.66 78.39,248.34 161.92,248.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="114.77" y="277.00" font-size="15">\</text>
+<polygon id="CapsLock" points="960.43,243.66 862.36,243.66 853.11,196.34 948.53,196.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="906.11" y="225.00" font-size="15">Caps</text>
+<polygon id="KeyA" points="857.04,243.66 803.28,243.66 795.62,196.34 847.93,196.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="825.97" y="225.00" font-size="15">A</text>
+<polygon id="KeyS" points="797.96,243.66 744.20,243.66 738.14,196.34 790.45,196.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="767.69" y="225.00" font-size="15">S</text>
+<polygon id="KeyD" points="738.89,243.66 685.12,243.66 680.66,196.34 732.97,196.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="709.41" y="225.00" font-size="15">D</text>
+<polygon id="KeyF" points="679.81,243.66 626.05,243.66 623.18,196.34 675.49,196.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="651.13" y="225.00" font-size="15">F</text>
+<polygon id="KeyG" points="620.73,243.66 566.97,243.66 565.70,196.34 618.01,196.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="592.85" y="225.00" font-size="15">G</text>
+<polygon id="KeyH" points="561.65,243.66 507.89,243.66 508.22,196.34 560.52,196.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="534.57" y="225.00" font-size="15">H</text>
+<polygon id="KeyJ" points="502.57,243.66 448.81,243.66 450.73,196.34 503.04,196.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="476.29" y="225.00" font-size="15">J</text>
+<polygon id="KeyK" points="443.49,243.66 389.73,243.66 393.25,196.34 445.56,196.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="418.01" y="225.00" font-size="15">K</text>
+<polygon id="KeyL" points="384.42,243.66 330.65,243.66 335.77,196.34 388.08,196.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="359.73" y="225.00" font-size="15">L</text>
+<polygon id="Semicolon" points="325.34,243.66 271.58,243.66 278.29,196.34 330.60,196.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="301.45" y="225.00" font-size="15">;</text>
+<polygon id="Quote" points="266.26,243.66 212.50,243.66 220.81,196.34 273.12,196.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="243.17" y="225.00" font-size="15">&#x27;</text>
+<polygon id="Enter" points="207.18,243.66 79.57,243.66 91.47,196.34 215.63,196.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="148.46" y="225.00" font-size="15">Enter</text>
+<polygon id="ShiftLeft" points="947.35,191.66 823.53,191.66 815.07,144.34 935.44,144.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="880.35" y="173.00" font-size="15">Shift</text>
+<polygon id="KeyZ" points="818.37,191.66 766.21,191.66 759.35,144.34 810.06,144.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="788.50" y="173.00" font-size="15">Z</text>
+<polygon id="KeyX" points="761.05,191.66 708.88,191.66 703.62,144.34 754.33,144.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="731.97" y="173.00" font-size="15">X</text>
+<polygon id="KeyC" points="703.72,191.66 651.56,191.66 647.89,144.34 698.60,144.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="675.44" y="173.00" font-size="15">C</text>
+<polygon id="KeyV" points="646.40,191.66 594.23,191.66 592.17,144.34 642.88,144.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="618.92" y="173.00" font-size="15">V</text>
+<polygon id="KeyB" points="589.08,191.66 536.91,191.66 536.44,144.34 587.15,144.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="562.39" y="173.00" font-size="15">B</text>
+<polygon id="KeyN" points="531.75,191.66 479.59,191.66 480.71,144.34 531.42,144.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="505.87" y="173.00" font-size="15">N</text>
+<polygon id="KeyM" points="474.43,191.66 422.26,191.66 424.99,144.34 475.70,144.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="449.34" y="173.00" font-size="15">M</text>
+<polygon id="Comma" points="417.10,191.66 364.94,191.66 369.26,144.34 419.97,144.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="392.82" y="173.00" font-size="15">,</text>
+<polygon id="Period" points="359.78,191.66 307.62,191.66 313.53,144.34 364.24,144.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="336.29" y="173.00" font-size="15">.</text>
+<polygon id="Slash" points="302.46,191.66 250.29,191.66 257.80,144.34 308.52,144.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="279.77" y="173.00" font-size="15">/</text>
+<polygon id="ShiftRight" points="245.13,191.66 92.65,191.66 104.56,144.34 252.79,144.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="173.78" y="173.00" font-size="15">Shift</text>
+<polygon id="ControlLeft" points="934.27,139.66 869.81,139.66 859.76,92.34 922.36,92.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="896.55" y="121.00" font-size="15">Ctrl</text>
+<polygon id="MetaLeft" points="864.81,139.66 800.35,139.66 792.29,92.34 854.90,92.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="828.09" y="121.00" font-size="15">Win</text>
+<polygon id="AltLeft" points="795.34,139.66 730.88,139.66 724.82,92.34 787.43,92.34" fill="#f6d3ce" stroke="#ad9991" stroke-width="1.5"/>
+<text x="759.62" y="121.00" font-size="15">Alt</text>
+<polygon id="Space" points="725.88,139.66 383.58,139.66 387.50,92.34 719.97,92.34" fill="#ffe8b6" stroke="#ad9991" stroke-width="1.5"/>
+<text x="554.23" y="121.00" font-size="15">SPACE</text>
+<polygon id="AltRight" points="378.58,139.66 314.12,139.66 320.03,92.34 382.64,92.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="348.84" y="121.00" font-size="15">Alt</text>
+<polygon id="MetaRight" points="309.12,139.66 244.66,139.66 252.57,92.34 315.18,92.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="280.38" y="121.00" font-size="15">Win</text>
+<polygon id="ContextMenu" points="239.65,139.66 175.19,139.66 185.10,92.34 247.71,92.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="211.92" y="121.00" font-size="15">Menu</text>
+<polygon id="ControlRight" points="170.19,139.66 105.73,139.66 117.64,92.34 180.24,92.34" fill="#d4e3f5" stroke="#ad9991" stroke-width="1.5"/>
+<text x="143.45" y="121.00" font-size="15">Ctrl</text>
+<text x="520" y="394" font-size="18">Physical RIGHT = screen left  |  Physical LEFT = screen right</text>
+</g></svg>

@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "targetCharacter": null,
+  "targetPlatforms": [],
+  "artMode": "explore",
+  "currentBaseImage": null,
+  "baseApproval": "pending",
+  "identityAnchors": [],
+  "referenceRoles": [],
+  "editableRegions": [],
+  "preserveRegions": [],
+  "composition": {
+    "view": "front-facing-pet",
+    "keyboardLayout": "choose-for-this-project",
+    "mouseCable": "unspecified",
+    "companion": null
+  },
+  "inputPolicy": {
+    "keyboardHands": "unspecified",
+    "physicalToScreenMirroring": "verify-on-reference",
+    "mouseOwnership": "unspecified",
+    "spaceLanding": "separate-if-requested"
+  },
+  "acceptanceCriteria": [],
+  "deferredWork": [],
+  "publicationAuthorization": null
+}
