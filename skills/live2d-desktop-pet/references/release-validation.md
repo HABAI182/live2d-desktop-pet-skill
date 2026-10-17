@@ -27,9 +27,9 @@ On Windows temp-directory ENOENT, use a verified project-local TEMP/TMP for that
 
 ## Version preservation
 
-Keep source commit, editable rig, runtime export, executable/installer, notices and SHA256 together in immutable per-version delivery records. A source model and a runtime repaired model may have separate provenance.
+Keep source commit, editable rig, runtime export, executable/installer, notices and SHA256 recoverable together. Use Release metadata and private archives for detailed records; avoid duplicate handoff and delivery reports in source Git. A source model and a runtime repaired model may have separate provenance.
 
-Keep at least the current and previous recoverable versions. Never overwrite historical executables, move tags, force-push or delete old Releases as routine cleanup. Target OS/architecture must be explicit in filenames and release notes; separate Windows and macOS builds.
+Keep at least the current and previous recoverable versions. Never overwrite historical executables, move tags or delete old Releases as routine cleanup. When the user explicitly authorizes Git history cleanup, verify a full private mirror before rewriting the authorized branches. Target OS/architecture must be explicit in filenames and release notes; separate Windows and macOS builds.
 
 ## 原生验证与用户偏好
 
