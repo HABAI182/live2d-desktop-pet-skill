@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path, PureWindowsPath
 import re
+import sys
 
 
 def verify(directory, manifest):
@@ -49,6 +50,7 @@ def verify(directory, manifest):
 
 
 def main():
+    sys.stdout.reconfigure(encoding='utf-8')
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('directory', type=Path)
     parser.add_argument('manifest', type=Path)

@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path, PureWindowsPath
 import subprocess
+import sys
 
 def command(root, *args):
     try:
@@ -79,6 +80,8 @@ def model_inventory(root, relative):
             'webglRendered': 'unknown', 'nativeDesktopVerified': 'unknown'}
 
 def main():
+    # JSON is UTF-8 even when Windows redirects stdout using an ANSI code page.
+    sys.stdout.reconfigure(encoding='utf-8')
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('project', type=Path)
     ap.add_argument('--model', help='Project-relative model3 entry; defaults to tracked model3 files')
