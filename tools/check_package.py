@@ -1,15 +1,11 @@
-"""Validate shipped JSON, local Markdown links and grandfathered asset hashes."""
-import hashlib
+"""Validate shipped JSON, local Markdown links and the asset-free package scope."""
 import json
 from pathlib import Path
 import re
 from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
-HASHES = {
-    'changli-composition-reference.jpg': 'fc87ea0cac9a3c283529585ec52a3909c9149e74c3ba1502d006ac817e132c11',
-    'xuanling-base-reference.png': 'f620733c7bdc692948611f4c4139227747a64001d77a1ed807a2a16580d2d5d8',
-}
+
 
 
 def main():
@@ -24,11 +20,10 @@ def main():
                     resolved = (path.parent / target).resolve()
                     if not resolved.is_relative_to(ROOT) or not resolved.exists():
                         raise ValueError(f'Broken local link: {path.relative_to(ROOT)} -> {target}')
-    for name, expected in HASHES.items():
-        path = ROOT / 'skills/live2d-desktop-pet/assets' / name
-        if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
-            raise ValueError(f'Example asset changed without provenance review: {name}')
-    print('Shipped JSON, local Markdown links and 2 example asset hashes verified; rights remain permission-pending.')
+    assets = ROOT / 'skills/live2d-desktop-pet/assets'
+    if {p.name for p in assets.iterdir()} != {'ASSET-NOTICE.md'}:
+        raise ValueError('Review provenance and update the asset policy before shipping examples')
+    print('Shipped JSON, local Markdown links and absence of unlicensed raster examples verified.')
 
 
 if __name__ == '__main__':

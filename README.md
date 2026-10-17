@@ -23,12 +23,11 @@
 | [踩坑与高效修正](skills/live2d-desktop-pet/references/mistakes-repairs.md) | 22 类实际问题及最短修正路线，包括测试误关提示和断线重复发布 |
 | [审美指南](skills/live2d-desktop-pet/references/aesthetic-guide.md) | 辨识度、结构、软弹节奏、次级运动、表情语义、iOS/Win11 式秩序和图标 |
 | [验收与交付](skills/live2d-desktop-pet/references/release-validation.md) | 证据层级、少而必要的验证、不同 OS、版本留档与清理规则 |
-| [长离工程案例](skills/live2d-desktop-pet/references/changli-case-study.md) | 可迁移的模块边界与项目经验；不把角色特定映射当作万能模板 |
 | [参考图与来源](skills/live2d-desktop-pet/references/source-provenance.md) | 长离起源文字、后续可见样张、玄翎修图经验和缺失像素边界 |
 
 附带3个Python 3.9+助手，无第三方Python依赖：[只读工程盘点](skills/live2d-desktop-pet/scripts/inspect_pet.py)、[键盘SVG/JSON示意](skills/live2d-desktop-pet/scripts/keyboard_layout.py)、[只读发行校验](skills/live2d-desktop-pet/scripts/verify_delivery.py)。盘点有Git时读取跟踪文件，没有Git时可明确指定模型。
 
-提供可填写的[角色与范围契约](skills/live2d-desktop-pet/templates/character-contract.json)、[生图/修图请求](skills/live2d-desktop-pet/templates/image-request.md)、[图层遮挡契约](skills/live2d-desktop-pet/templates/layer-contract.json)和[进度交接](skills/live2d-desktop-pet/templates/handoff.json)。
+提供可填写的[角色与范围契约](skills/live2d-desktop-pet/templates/character-contract.json)、[生图/修图请求](skills/live2d-desktop-pet/templates/image-request.md)、[图层遮挡契约](skills/live2d-desktop-pet/templates/layer-contract.json)。
 
 ## 从一张底稿开始，怎样推进
 
@@ -39,12 +38,7 @@
 5. 完成原生输入、菜单、拖动、设置与持久化；不要让浏览器预览代替系统行为
 6. 只验证本轮风险，恢复测试偏好，保留源码/模型来源与分平台版本，持续保存进度
 
-下面是**后续参考/候选图**，不是最早三张生成图的恢复件，也不是键盘、纹样等所有细节的标准答案：
-
-<img src="skills/live2d-desktop-pet/assets/changli-composition-reference.jpg" width="300" alt="长离后续构图参照" />
-<img src="skills/live2d-desktop-pet/assets/xuanling-base-reference.png" width="300" alt="玄翎已选方向候选" />
-
-只迁移体量、构图和修复思路，人物识别按新项目资料。详见[图像来源与使用边界](skills/live2d-desktop-pet/assets/ASSET-NOTICE.md)。
+技能不再附带角色案例位图。请提供自己有权使用的底图；历史图片的来源与移出说明见[素材说明](skills/live2d-desktop-pet/assets/ASSET-NOTICE.md)。几何键盘 SVG/JSON 示例继续保留。
 
 ## 安装
 
@@ -80,7 +74,7 @@ python skills/live2d-desktop-pet/scripts/verify_delivery.py /path/to/delivery /p
 
 ## 范围与边界
 
-本仓库包含原创工作流说明、3个辅助脚本、模板及两张注明用途的输入案例图。不包含角色运行贴图包、Cubism模型/Core/SDK、桌宠安装包、收款码、个人机密或宣传视频工具；不把完整原始聊天和未筛选资料直接公开。
+本仓库包含原创工作流说明、3个辅助脚本、模板和键盘几何示例。不包含角色运行贴图包、Cubism模型/Core/SDK、桌宠安装包、收款码、个人机密或宣传视频工具；不把完整原始聊天和未筛选资料直接公开。
 
 技能不会从一张图片自动生成正式 Cubism 绑定。精细原画与网格关键形仍需可编辑源稿、编辑器和实际视觉检查；运行时补丁不能冒称为新的 CMO3 导出。
 
@@ -88,6 +82,6 @@ python skills/live2d-desktop-pet/scripts/verify_delivery.py /path/to/delivery /p
 
 ## 许可与版本
 
-原创代码与说明采用MIT，见[LICENSE](LICENSE)；案例图按[资产说明](skills/live2d-desktop-pet/assets/ASSET-NOTICE.md)区分，不授予原角色的额外权利。当前版本 `v3.1.0`，旧版 `v0.1.0`、`v0.1.1` 保留。变更见[CHANGELOG.md](CHANGELOG.md)。
+原创代码与说明采用MIT，见[LICENSE](LICENSE)；不附带角色图像或授予角色的额外权利。当前版本 `v3.1.0`，旧版 `v0.1.0`、`v0.1.1` 保留。变更见[CHANGELOG.md](CHANGELOG.md)。
 
-脚本检查：`python -m unittest discover -s tests -v`。行为场景见[qa/scenarios.md](qa/scenarios.md)，它检查决策与证据边界，不以测试数量或标题匹配代替真实项目验收。
+脚本检查：`python -m unittest discover -s tests -v` 和 `python tools/check_package.py`。
