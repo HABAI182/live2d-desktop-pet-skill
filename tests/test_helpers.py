@@ -2,6 +2,7 @@
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -138,6 +139,27 @@ class FileTests(unittest.TestCase):
         run = subprocess.run([sys.executable, str(SCRIPTS/'verify_delivery.py'), str(self.project), str(path)], capture_output=True)
         self.assertEqual(run.returncode, 1)
         self.assertFalse(json.loads(run.stdout)['filesVerified'])
+
+    def test_json_clis_override_legacy_stdout_encoding(self):
+        # Reproduce Windows pipe encoding failures independently of the runner locale.
+        environment = {**os.environ, 'PYTHONIOENCODING': 'cp1252', 'PYTHONUTF8': '0'}
+        model_name = '模型 甲.model3.json'
+        self.model({'FileReferences': {'Moc': 'missing.moc3', 'Textures': []}}, model_name)
+        manifest = self.manifest([{'file': '不存在.bin', 'sha256': 'a'*64}])
+        commands = [
+            ('inspect_pet.py', [str(self.project), '--model', model_name], 0),
+            ('verify_delivery.py', [str(self.project), str(manifest)], 1),
+        ]
+        for script, arguments, expected_status in commands:
+            with self.subTest(script=script):
+                run = subprocess.run([sys.executable, str(SCRIPTS/script), *arguments],
+                                     capture_output=True, env=environment)
+                self.assertEqual(run.returncode, expected_status, run.stderr)
+                report = json.loads(run.stdout.decode('utf-8'))
+                if script == 'inspect_pet.py':
+                    self.assertEqual(report['models'][0]['entry'], model_name)
+                else:
+                    self.assertEqual(report['artifacts'][0]['file'], '不存在.bin')
 
 
 if __name__ == '__main__':

@@ -1,5 +1,11 @@
 # 版本记录
 
+## 未发行 — 2026-10-17
+
+- 修复 Windows 重定向 stdout 的中文路径 JSON 编码，增加 legacy code page 回归。
+- 增加 Python 3.9/3.14 跨平台 CI 与包内链接、JSON、案例图哈希检查。
+- 案例图公开再分发授权标记为 permission-pending；未新增图像或修改旧 Release。
+
 ## v3.1.0 — 2026-10-14
 
 将用户提供的底稿生图skill v3.0与本仓库工程skill v0.1.1合并为可按阶段使用的完整流程；技能调用名保持live2d-desktop-pet。
