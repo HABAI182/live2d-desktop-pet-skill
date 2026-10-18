@@ -2,7 +2,7 @@
 name: live2d-desktop-pet
 description: 从参考图与 Q 版底稿设计、局部修图、遮挡补全和 Cubism 绑定，到键鼠动作、原生桌面窗口、设置、排错与分平台交付，制作或修复真正的 Live2D 桌宠。适用于 BongoCat 式桌宠和现有 Cubism/Tauri 工程；单张立绘任务只执行图像阶段。排除 ChatGPT Work 宠物和宣传视频制作。
 metadata:
-  version: "3.1.0"
+  version: "3.2.0"
 ---
 
 # Q 版 Live2D 桌宠：从底稿到可用软件
@@ -19,11 +19,13 @@ metadata:
 | 已认可画面，只修键盘/眼睛/头发/袖口 | [生图与局部编辑](references/image-direction.md)、[参考与来源](references/source-provenance.md) | 指定区域修正、锁区对照 |
 | 键盘方向、空格、键区与手的落点 | [键盘空间](references/keyboard-space.md) | 几何与输入映射，可生成 SVG/JSON 示意 |
 | 抠图、缺角、移动后露洞、Cubism 建模 | [分层与绑定](references/layering-rigging.md) | 补全图层、可编辑源、真实导出 |
+| 双眼抠像、瞳色、闭眼残框、困倦/脸红粗糙 | [眼部与表情](references/eye-and-expression.md) | 干净眼层、遮罩、可辨识情绪及切换检查 |
 | 长按抖动、两手混用、眨眼/视线异常 | [动作架构](references/runtime-native.md)、[输入与游戏排错](references/input-and-game.md) | 正确状态、参数与相关场景证据 |
 | 菜单、拖拽、缩放、设置、启动不动 | [原生窗口与设置](references/windows-settings.md) | 打包程序中的真实行为 |
 | 新工程全流程或阶段安排 | [施工流程](references/workflow-playbook.md) | 最短可运行切片及分阶段交付 |
 | 美术、软弹感、UI 与图标不好看 | [审美指南](references/aesthetic-guide.md) | 可指出变化原因的视觉对照 |
 | 打包、GitHub、Mac 移植附件合入 | [验收与发布](references/release-validation.md) | 独立版本、真实来源、校验及恢复记录 |
+| 复盘秧秧、同类问题反复出现 | [秧秧制作与纠错案例](references/yangyang-case-study.md) | 按失败原因选修法，沿用有效证据 |
 
 只加载当前任务需要的文档。工具选择见 [tools-methods.md](references/tools-methods.md)，实际失败和修法见 [mistakes-repairs.md](references/mistakes-repairs.md)。
 
@@ -40,6 +42,8 @@ metadata:
 9. 少做重复测试，只覆盖变化触及的风险；脚本改过用户开关，结束时恢复并核对持久化和实际可见状态。
 10. 每个实质里程碑保存进度、源码/模型来源、证据和下一步。发布对应真实源码并保留旧版；仅向用户授权的目标仓库发布，不上传原始聊天、机密或无关材料。
 
+眼部和手袖的坏分层先修再放大动作；表情必须改变脸部语义，装饰符号只作辅助。透明画面不自动具备原生点击穿透。具体验收按本轮风险填写 [视觉纠错记录](templates/visual-review.md)，不要求每次全量重测。
+
 ## 最小执行契约
 
 按需填写 [character-contract.json](templates/character-contract.json) 和 [image-request.md](templates/image-request.md)：角色、操作系统、朝向、身份锚点、底图及参考职责、允许改/保留区、手部归属和具体验收结果。
@@ -47,5 +51,7 @@ metadata:
 底稿未齐时，程序可用明确标注的占位资产先跑通加载、一次键盘/鼠标、空闲动作和设置；正式图层和模型必须另过美术与绑定验收门，不要把占位图变成“已完成 Live2D”。
 
 参考来源的处理见 [source-provenance.md](references/source-provenance.md)。不随技能提供角色位图，新项目使用自己有权使用的参考。
+
+秧秧案例中的灰蓝瞳、羽饰、四区加 Space、单手键盘及三版本拆分均有具体项目背景；不能自动成为新角色的身份、价格或功能默认值。
 
 结束时给出可打开的产物、实现与验证范围、限制和必要的恢复信息；优先写在当前任务记录中，避免向工程累积交接、提示词和交付报告。用户要求完整桌宠时持续推进可做阶段。

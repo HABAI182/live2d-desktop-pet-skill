@@ -6,6 +6,12 @@ Find the active `.model3.json`, moc3, texture atlas, physics, expressions and mo
 
 Create a dated candidate and checksum inventory. Keep the last working editable rig and its runtime export together. Record the Cubism/Core versions and required parameter IDs.
 
+## 保留原像素与锁定局部
+
+认可底稿后，先区分问题在源图、裁片、网格、运行时变换还是窗口裁切。画面变窄时，检查画布尺寸、非等比缩放和 object-fit，不能先把脸重画宽；饱和度漂移先查色彩配置与滤镜。补画只覆盖允许的隐藏区/修补区和必要接缝，其他区域保留原像素。
+
+同尺寸对齐基准图，记录本轮允许改动的遮罩与保护区差分。抗锯齿、重采样或色彩转换也可能引入差异，需要说明来源，不能口头宣称“完全没动”。用户只允许极少量修剪发尖时，不扩展到整头发量、脸宽或其他饰品。
+
 ## Separate complete objects
 
 Start from a stable base and an occlusion map. A white-background illustration is not a transparent asset, and isolated visible fragments are not complete layers. Keep layer IDs, parent/side/driver, hidden-art coverage, blend/mask and version in an asset contract so the exporter and renderer agree. Adapt [layer-contract.json](../templates/layer-contract.json); this is a planning template, not an official Cubism format.
@@ -34,6 +40,21 @@ A flattened reference does not contain art behind a hand. Removing the hand alon
 For runtime underpaint, bind patch vertices to the native mesh (e.g. barycentric coordinates in UV triangles) so the patch follows head turns and spring deformation. Cache static topology instead of re-searching triangles every frame.
 
 Keep each hand's palm, cuff and rear sleeve separable where motion exposes their joint. Repair the sleeve/torso underneath rather than cutting it out. A long tail or hair repair needs a plausible continuous contour and thickness, not a stretched cropped edge. Inspect clean alpha on both dark and light backgrounds; do not erase the original outline as if it were residue.
+
+## 白边、缺角与手袖的定位顺序
+
+| 检查层 | 典型线索 | 对应处理 |
+| --- | --- | --- |
+| 原画/裁片 RGBA | 黑底下有白晕，原文件也缺一角 | 区分白底混色与原有白色高光；局部去污染/补轮廓 |
+| Atlas/UV/网格 | 原裁片完整，导出后少一角或邻图串色 | 检查裁切、透明留边、UV、网格覆盖与纹理采样 |
+| 剪贴/混合 | 只在眼白遮罩边或特定渲染器露色 | 核对 mask、半透明轮廓与 straight/premultiplied-alpha 约定 |
+| 运行时/窗口 | 动时缺角、缩放后裁边，源图中性正常 | 查累积形变、组合极值、canvas 与窗口尺寸/布局 |
+
+把可疑区域合成到黑、白、中灰和棋盘格，并看常用桌面尺寸与局部放大。Alpha 灰度图能看透明残片，但不能区分正确的浅色发丝和污染；不要按“接近白色”全图删像素，或统一腐蚀所有边缘。透明像素的颜色、边缘 Alpha 与混合配置要一起检查。
+
+手部裁片先单独显示：掌缘之外是否带着脸、头发、另一只手、长袖外沿或底稿阴影？只让应共同运动的掌部与末端袖口随手；后袖/袖根固定或渐变衔接。先补齐手移开后露出的对象，再检查四区、Space、鼠标 XY 和最大允许弹性叠加；一侧修好不代表另一侧也合格。
+
+缺角先找来源，不能用放大整块头发遮住它。新补发束应接得上原描边、方向与厚度；必要时只做用户允许的极小修剪。眼睛的旧眼清理、遮罩与闭眼结构另见 [eye-and-expression.md](eye-and-expression.md)。
 
 ## Rig
 
