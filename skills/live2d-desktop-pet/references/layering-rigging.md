@@ -27,6 +27,27 @@ Typical desk-facing layers, back to front:
 
 Ordering is reference-dependent. Preserve unrelated drawables and mask relationships when moving a hand ahead of the torso.
 
+## 常规角色的可动分层
+
+生图或绘制前按动作选择下列结构；左右以角色自身为准，并与画面方向对应。独立变形、遮挡或物理摆动的对象分开，同步且不需独立控制的细节可以合并，不强给 Q 版添加长臂或过多碎层。
+
+| 部位 | 常见拆法与完整性 |
+| --- | --- |
+| 头发与头部 | 后发、侧发、刘海、需要独立摆动的发束；脸底、耳、颈按转头和遮挡需要分开，发下皮肤补完整 |
+| 每只眼睛 | 左右眼分别管理；上/下睫毛、完整眼白、虹膜/瞳孔、眼睑按开合与视线方案拆开；高光需要独立运动时另层，眉毛独立；眼白不能只剩虹膜外的可见环 |
+| 嘴 | 按口形需求拆上下唇线、口腔；需要露出的牙/舌另层。简单闭口桌宠可简化，但脸底不保留重影嘴线 |
+| 身体、衣服与手 | 按关节与遮挡拆躯干、前后衣片、上臂/前臂、手掌、袖口/后袖；手移开后身体与袖根仍完整，按动作决定是否细拆手指 |
+| 饰品与配角 | 发饰主体与摆动挂件、缎带分开；鸟/凤凰按实际动作拆身体、翅、尾等，根部有连接余量 |
+| 输入设备 | 键盘、完整鼠标、线缆与手分开；设备不带手掌残片，接触阴影按所属对象或独立层处理 |
+
+具体闭眼几何和遮罩策略见 [eye-and-expression.md](eye-and-expression.md)，不要为追求层数拆出没有绘制完整的碎片。
+
+## 从部件到可导入 PSD
+
+保留便于修改的分层美术源，再另存导入用 PSD：每个可动部件占独立层，把该部件内部的线稿、填色、效果和图层蒙版按需要合并或应用，保留部件之间的分离。名称唯一，组装时使用统一画布与原始坐标，不整体合并角色。
+
+按官方[PSD 注意事项](https://docs.live2d.com/en/cubism-editor-manual/precautions-for-psd-data/)使用 RGB、8 bit/channel、sRGB，并核对目标 Cubism 支持的混合模式。导入后检查各部件是否形成独立对象、位置与叠放是否一致；只有重组预览正确不代表已经完成网格、参数或物理绑定。
+
 ## Reconstruct hidden areas
 
 A flattened reference does not contain art behind a hand. Removing the hand alone reveals missing material.

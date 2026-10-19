@@ -9,13 +9,15 @@ metadata:
 
 先让角色像、结构完整、输入有回应，再增加动态和界面。沿用用户的技术栈和已认可资产；这是一套决策与修复方法，不是强制新建工程的模板。
 
+从零制作可动美术时，默认在生图前按 Live2D 动作规划部件，按清单生成或补绘独立图层；合成底图用于统一造型与对齐，正式资产落实为完整部件和分层 PSD。已有认可图则沿用其原像素拆件、补齐隐藏区，具体见 [底稿与部件生成](references/image-direction.md)。
+
 ## 接手与选择当前阶段
 
 读取 AGENTS、Git status/diff、最近提交、进度、实际模型入口及发行索引。建立“需求—现状—证据—下一步”，不重复已完成工作。可运行 `python scripts/inspect_pet.py PROJECT` 做只读盘点；非 Git 工程用 `--model` 明确入口。命令中的脚本路径以本 skill 目录为基准。
 
 | 用户任务 | 先读 | 本轮产物 |
 | --- | --- | --- |
-| 没有底稿、还不够 Q、像普通半身插画 | [生图与局部编辑](references/image-direction.md) | 候选底稿、身份卡、结构对照 |
+| 没有底稿、还不够 Q、像普通半身插画 | [生图与局部编辑](references/image-direction.md) | 合成参照、身份卡、可动部件清单与分层方案 |
 | 已认可画面，只修键盘/眼睛/头发/袖口 | [生图与局部编辑](references/image-direction.md)、[参考与来源](references/source-provenance.md) | 指定区域修正、锁区对照 |
 | 键盘方向、空格、键区与手的落点 | [键盘空间](references/keyboard-space.md) | 几何与输入映射，可生成 SVG/JSON 示意 |
 | 抠图、缺角、移动后露洞、Cubism 建模 | [分层与绑定](references/layering-rigging.md) | 补全图层、可编辑源、真实导出 |
