@@ -22,6 +22,18 @@ On release, set the pressure target toward neutral and ease it out; reach may se
 
 Use the same gaze target for both eyes and verify sign conventions on the actual rig. Limit pupil motion so the eyes do not converge at neutral. Blend expression openness with blink closure, rather than overwriting each other frame by frame.
 
+Runtime vertex edits must start from a stable per-frame base, not the previous frame's deformed vertices; otherwise stretching accumulates. If editing a mask drawable outside Core, verify mask invalidation in that Framework version as well. Eye art, clipping and closed-eye semantics are covered in [eye-and-expression.md](eye-and-expression.md).
+
+## 视线、鼠标手与弹性分别调
+
+视线跟随、鼠标手平移和按压共享输入来源，但不是同一输出状态。视线空闲回正不能把手和鼠标拉回中点；手/鼠标共用位移驱动，手指按压另叠加，袖根使用连续权重衔接。
+
+先定义屏幕坐标到角色空间的映射、最大位移和用户幅度乘数，再调大范围。在最大允许设置和斜向极值核对露底、线缆、袖口以及另一只手；不能只在默认滑杆下检查。秧秧的具体像素行程见 [案例](yangyang-case-study.md)，不可跨模型照抄。
+
+视线空闲机可拆为 following → waiting → returning → centered。以真实指针位移更新时间，使用有意义的移动阈值抑制噪声；不要每次收到相同轮询数据都刷新计时。移动检测放在视线目标钳制之前或另存原始坐标，避免范围外移动被误判静止。延迟、幅度和回正开关可配置；重新移动平滑接回，关闭跟随时按产品定义归位。
+
+弹性以短按压下、长按保持、释放回弹与次级余韵组合，冲量有上限、阻尼能收住。真实重按可叠加受控反馈，autorepeat 不新增冲量；帧间隔异常时限制积分步长，避免卡顿后一次飞出。头发、挂饰与鸟从各自根部受驱动，不让所有对象同步整块缩放。参数起调与观感检查见 [aesthetic-guide.md](aesthetic-guide.md)。
+
 ## One-hand keyboard example
 
 This is an optional ownership policy, not the current default for every project. A two-hand policy maps physical left/right zones to anatomical hands, with keyboard ownership overriding the mouse while the mouse hand is busy. Confirm screen mirroring and model parameter names; see [keyboard-space.md](keyboard-space.md).
