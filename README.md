@@ -4,7 +4,9 @@
 
 目标是制作能日常使用、动作有回应、角色像原图的桌宠，同时明确区分占位素材、可编辑模型、运行时修复、浏览器验证与真正原生验收。
 
-当前版本 **v3.2.0**：在长离经验上加入秧秧从单图拆层到独立桌面版本的制作与纠错复盘，重点细化双眼、闭眼与情绪、手袖与白边、透明命中和 EXE 交付。调用名仍为 `$live2d-desktop-pet`。先按任务选择阶段，不在每次小修时加载整套文档。
+当前发行版 **[v3.2.1](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/tag/v3.2.1)**：包含秧秧制作与纠错经验，并将 Live2D 部件分层规划前置到生图阶段，提供独立部件请求、分层 PSD 规范及可安装技能包。调用名仍为 `$live2d-desktop-pet`。先按任务选择阶段，不在每次小修时加载整套文档。
+
+[下载 ZIP](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.2.1/live2d-desktop-pet-skill-v3.2.1.zip) · [全部版本](https://github.com/HABAI182/live2d-desktop-pet-skill/releases) · [SHA256 清单](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.2.1/SHA256-v3.2.1.json)
 
 ## 内容
 
@@ -46,6 +48,8 @@
 
 ## 安装
 
+下载上方 Release ZIP，核对 SHA256 后解压，将其中 `live2d-desktop-pet` 文件夹放入 `~/.codex/skills/`，重新开启会话。包内附有 MIT LICENSE 和 VERSION；不包含角色位图或模型。`.skill` 附件与 ZIP 内容相同，也可改名为 `.zip` 后解压。GitHub 自动生成的 Source code 压缩包是完整仓库源码，日常安装使用上方技能 ZIP 即可。
+
 在 Codex 中请求：
 
 > 使用 skill-installer，从 HABAI182/live2d-desktop-pet-skill 安装 skills/live2d-desktop-pet
@@ -86,6 +90,19 @@ python skills/live2d-desktop-pet/scripts/verify_delivery.py /path/to/delivery /p
 
 ## 许可与版本
 
-原创代码与说明采用MIT，见[LICENSE](LICENSE)；不附带角色图像或授予角色的额外权利。当前版本 `v3.2.0`，已有标签与发行附件保留。变更见[CHANGELOG.md](CHANGELOG.md)。
+原创代码与说明采用MIT，见[LICENSE](LICENSE)；不附带角色图像或授予角色的额外权利。当前版本 `v3.2.1`，已有标签与发行附件保留。变更见[CHANGELOG.md](CHANGELOG.md)。
 
 脚本检查：`python -m unittest discover -s tests -v` 和 `python tools/check_package.py`。
+
+## 维护与发行
+
+`skills/live2d-desktop-pet/` 是可安装技能；`examples/` 是几何示例；`tests/` 和 `tools/` 用于维护。打包只读取指定 commit 的跟踪技能文件及根 LICENSE/VERSION，不复制本机日志、缓存或未跟踪素材。
+
+更新 VERSION、SKILL 元数据、README 和 CHANGELOG，通过 PR 检查并合并后，为该 main commit 创建同版本 `vX.Y.Z` Tag 并推送。[release 工作流](.github/workflows/release.yml)会检查版本及 main 归属、构建附件、上传新草稿，下载回读核对文件/CRC/SHA256 与源码一致后公开为最新版；旧发行已存在时停止，不覆盖附件。
+
+```sh
+python tools/build_release.py --output-dir dist
+python tools/build_release.py --verify-dir dist
+```
+
+合并源码不会自动产生 Release；Tag 是正式发行入口。需重新本地打包时使用新的输出目录，避免覆盖先前文件。
