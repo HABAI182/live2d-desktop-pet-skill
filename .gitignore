@@ -4,4 +4,7 @@ __pycache__/
 .env.*
 *.log
 *.zip
+*.skill
+/dist/
+/readback/
 deliveries/

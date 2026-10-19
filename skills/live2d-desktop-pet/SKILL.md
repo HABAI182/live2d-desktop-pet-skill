@@ -2,7 +2,7 @@
 name: live2d-desktop-pet
 description: 从参考图与 Q 版底稿设计、局部修图、遮挡补全和 Cubism 绑定，到键鼠动作、原生桌面窗口、设置、排错与分平台交付，制作或修复真正的 Live2D 桌宠。适用于 BongoCat 式桌宠和现有 Cubism/Tauri 工程；单张立绘任务只执行图像阶段。排除 ChatGPT Work 宠物和宣传视频制作。
 metadata:
-  version: "3.2.0"
+  version: "3.2.1"
 ---
 
 # Q 版 Live2D 桌宠：从底稿到可用软件
