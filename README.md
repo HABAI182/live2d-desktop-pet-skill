@@ -1,12 +1,12 @@
 # Live2D Desktop Pet Skill
 
-一份从真实项目总结出的 Codex / AI 助手技能：从角色参考、Q版底稿生图、定稿后的局部修补，到分层补绘、Cubism绑定、键鼠动作、原生窗口、设置与分平台发行。
+一份从真实项目总结出的 Codex / AI 助手技能，覆盖 Q 版底稿、局部修补、分层补绘、Cubism 绑定、键鼠动作、原生窗口、设置、分平台发行和桌宠宣传片。
 
 目标是制作能日常使用、动作有回应、角色像原图的桌宠，同时明确区分占位素材、可编辑模型、运行时修复、浏览器验证与真正原生验收。
 
-当前发行版 **[v3.3.0](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/tag/v3.3.0)** 增加浙大娘案例，涵盖一次触碰回弹、发片动态接缝、窗口卡顿、浮显优先级与公开下载验收。调用名为 `$live2d-desktop-pet`，可按任务选择需要的流程。
+当前发行版 **[v3.4.0](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/tag/v3.4.0)** 增加桌宠宣传片流程，并更新「启真」案例中的原生录屏、改名发版和旧下载地址验收。调用名为 `$live2d-desktop-pet`，可按任务选择需要的流程。
 
-[下载 ZIP](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.3.0/live2d-desktop-pet-skill-v3.3.0.zip) · [下载 .skill](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.3.0/live2d-desktop-pet-skill-v3.3.0.skill) · [SHA256 清单](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.3.0/SHA256-v3.3.0.json) · [全部版本](https://github.com/HABAI182/live2d-desktop-pet-skill/releases)
+[下载 ZIP](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.4.0/live2d-desktop-pet-skill-v3.4.0.zip) · [下载 .skill](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.4.0/live2d-desktop-pet-skill-v3.4.0.skill) · [SHA256 清单](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.4.0/SHA256-v3.4.0.json) · [全部版本](https://github.com/HABAI182/live2d-desktop-pet-skill/releases)
 
 ## 内容
 
@@ -26,9 +26,10 @@
 | [踩坑与高效修正](skills/live2d-desktop-pet/references/mistakes-repairs.md) | 28 类问题及最短修正路线，包含原像素保护、眼袖夹带、透明挡点击与分版加载失败 |
 | [审美指南](skills/live2d-desktop-pet/references/aesthetic-guide.md) | 辨识度、结构、软弹节奏、次级运动、表情语义、iOS/Win11 式秩序和图标 |
 | [验收与交付](skills/live2d-desktop-pet/references/release-validation.md) | 证据层级、少而必要的验证、不同 OS、版本留档与清理规则 |
+| [桌宠宣传片制作](skills/live2d-desktop-pet/references/promo-video.md) | 录屏、Live2D 近景、节奏、卡顿核对与投稿交付 |
 | [参考图与来源](skills/live2d-desktop-pet/references/source-provenance.md) | 长离起源文字、后续可见样张、玄翎修图经验和缺失像素边界 |
 | [秧秧制作与纠错案例](skills/live2d-desktop-pet/references/yangyang-case-study.md) | 阶段顺序、反馈到机制、修复证据与未验收范围，具体偏好不泛化为全角色默认 |
-| [浙大娘日用打磨案例](skills/live2d-desktop-pet/references/zju-case-study.md) | 接缝、一次回弹、右键与拖动卡顿、浮显布局、匿名下载校验 |
+| [「启真」日用打磨案例](skills/live2d-desktop-pet/references/zju-case-study.md) | 接缝、单次回弹、窗口卡顿、宣传片、改名发版与旧链接校验 |
 
 附带3个Python 3.9+助手，无第三方Python依赖：[只读工程盘点](skills/live2d-desktop-pet/scripts/inspect_pet.py)、[键盘SVG/JSON示意](skills/live2d-desktop-pet/scripts/keyboard_layout.py)、[只读发行校验](skills/live2d-desktop-pet/scripts/verify_delivery.py)。盘点有Git时读取跟踪文件，没有Git时可明确指定模型。
 
@@ -83,15 +84,15 @@ python skills/live2d-desktop-pet/scripts/verify_delivery.py /path/to/delivery /p
 
 ## 范围与边界
 
-本仓库包含原创工作流说明、3个辅助脚本、模板和键盘几何示例。不包含角色运行贴图包、Cubism模型/Core/SDK、桌宠安装包、收款码、个人机密或宣传视频工具；不把完整原始聊天和未筛选资料直接公开。
+本仓库包含原创工作流说明、3 个辅助脚本、模板和键盘几何示例。宣传片流程可配合本机剪辑与录屏工具。安装包只包含技能文件与许可。
 
 技能不会从一张图片自动生成正式 Cubism 绑定。精细原画与网格关键形仍需可编辑源稿、编辑器和实际视觉检查；运行时补丁不能冒称为新的 CMO3 导出。
 
-案例来自 [离火长明](https://github.com/HABAI182/changli-companion)及秧秧玄翎制作过程。技术与审美判断按目标项目调整，不保证一套参数适合所有角色，也不复制参考作者素材。秧秧案例只公开方法；其私有素材与工程不随技能提供。
+案例来自 [离火长明](https://github.com/HABAI182/changli-companion)、秧秧玄翎及 [「启真」](https://github.com/HABAI182/qizhen-companion)的制作过程。按目标项目调整技术与审美判断，秧秧案例公开的是制作方法。
 
 ## 许可与版本
 
-原创代码与说明采用 MIT。源码版本 `v3.3.0`，已发布版本和下载入口见上方。[许可](LICENSE) · [变更记录](CHANGELOG.md)
+原创代码与说明采用 MIT。源码版本 `v3.4.0`，已发布版本和下载入口见上方。[许可](LICENSE) · [变更记录](CHANGELOG.md)
 
 脚本检查：`python -m unittest discover -s tests -v` 和 `python tools/check_package.py`。
 

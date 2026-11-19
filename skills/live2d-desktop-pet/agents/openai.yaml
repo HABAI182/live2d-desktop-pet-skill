@@ -1,4 +1,4 @@
 interface:
   display_name: "Q版 Live2D 桌宠全流程"
-  short_description: "从底稿生图、精准修补到 Cubism、原生输入和分平台交付"
-  default_prompt: "使用 $live2d-desktop-pet，先判断当前处于底稿、绑定、工程修复还是发布阶段，保留已认可成果并继续完成可验证的桌宠。"
+  short_description: "从底稿生图和 Cubism 绑定到原生交互、分平台交付与桌宠宣传实录"
+  default_prompt: "使用 $live2d-desktop-pet，按需完成底稿、绑定、原生交互、交付或桌宠宣传片，保留已认可成果并实测本轮改动。"
