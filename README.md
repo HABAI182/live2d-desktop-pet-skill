@@ -4,9 +4,9 @@
 
 目标是制作能日常使用、动作有回应、角色像原图的桌宠，同时明确区分占位素材、可编辑模型、运行时修复、浏览器验证与真正原生验收。
 
-当前发行版 **[v3.2.1](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/tag/v3.2.1)**：包含秧秧制作与纠错经验，并将 Live2D 部件分层规划前置到生图阶段，提供独立部件请求、分层 PSD 规范及可安装技能包。调用名仍为 `$live2d-desktop-pet`。先按任务选择阶段，不在每次小修时加载整套文档。
+当前发行版 **[v3.3.0](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/tag/v3.3.0)** 增加浙大娘案例，涵盖一次触碰回弹、发片动态接缝、窗口卡顿、浮显优先级与公开下载验收。调用名为 `$live2d-desktop-pet`，可按任务选择需要的流程。
 
-[下载 ZIP](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.2.1/live2d-desktop-pet-skill-v3.2.1.zip) · [全部版本](https://github.com/HABAI182/live2d-desktop-pet-skill/releases) · [SHA256 清单](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.2.1/SHA256-v3.2.1.json)
+[下载 ZIP](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.3.0/live2d-desktop-pet-skill-v3.3.0.zip) · [下载 .skill](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.3.0/live2d-desktop-pet-skill-v3.3.0.skill) · [SHA256 清单](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.3.0/SHA256-v3.3.0.json) · [全部版本](https://github.com/HABAI182/live2d-desktop-pet-skill/releases)
 
 ## 内容
 
