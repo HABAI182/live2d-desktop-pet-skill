@@ -34,6 +34,8 @@ Runtime vertex edits must start from a stable per-frame base, not the previous f
 
 弹性以短按压下、长按保持、释放回弹与次级余韵组合，冲量有上限、阻尼能收住。真实重按可叠加受控反馈，autorepeat 不新增冲量；帧间隔异常时限制积分步长，避免卡顿后一次飞出。头发、挂饰与鸟从各自根部受驱动，不让所有对象同步整块缩放。参数起调与观感检查见 [aesthetic-guide.md](aesthetic-guide.md)。
 
+用户要求摸一次只弹一下时，让一次按下至松开产生一个头部动作：单次下压、一次反向回弹、归位。页面头部触碰和全局鼠标边沿可能先后到达同一次点击，按点击归属抑制重复的头部通道，鼠标手独立回应。用默认与最大幅度、常用 30/60 帧率检查过零次数、回位和快点两次；把迟到的原生边沿与实际再次按下都纳入回归。
+
 ## One-hand keyboard example
 
 This is an optional ownership policy, not the current default for every project. A two-hand policy maps physical left/right zones to anatomical hands, with keyboard ownership overriding the mouse while the mouse hand is busy. Confirm screen mirroring and model parameter names; see [keyboard-space.md](keyboard-space.md).

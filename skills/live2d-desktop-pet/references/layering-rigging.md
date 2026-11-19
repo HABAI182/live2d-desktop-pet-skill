@@ -77,6 +77,8 @@ Keep each hand's palm, cuff and rear sleeve separable where motion exposes their
 
 缺角先找来源，不能用放大整块头发遮住它。新补发束应接得上原描边、方向与厚度；必要时只做用户允许的极小修剪。眼睛的旧眼清理、遮罩与闭眼结构另见 [eye-and-expression.md](eye-and-expression.md)。
 
+脸颊、发带、侧发与衣领的裂缝常只在回弹极值出现。截取同一局部的中性、最大压缩和最大反向形变，对照深浅底。先定位真正断开的两个 ArtMesh，再检查覆盖关系与位移权重。必要时在下层补短而连续的叠层，并给根部与现有部件相同的参考形变。更新 PSD、可编辑模型与运行导出的来源记录，重看回弹与转头叠加时的交界。
+
 ## Rig
 
 Separate front/back hair, ornament pendants, tails/wings, hand presses/reaches, eye openness/gaze, head angle/shape and body breath. Give deformations enough art beneath them to remain filled.

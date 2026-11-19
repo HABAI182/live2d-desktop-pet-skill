@@ -92,6 +92,10 @@ README列主要功能、分平台下载、上手、权限与常见问题，以�
 
 用户要求 EXE 入口时，每次交付直接链接到经存在性核验的本地 EXE 和对应 GitHub EXE 附件，ZIP 可另给备份。文件名标明版本、版别与平台，不能只给文件夹或让用户从一堆附件猜；发布后核对附件原字节/哈希和标签对应的真实提交。私有仓库链接注明访问条件，不能冒称所有人都可下载。
 
+由私有转公开会同时开放 Git 历史、已发布的附件和可编辑模型。按用户授权的可见性盘点远端分支、标签、发行附件、第三方素材和证据包，再执行变更。使用无账户凭据的客户端访问版本 URL、跟随重定向下载目标 EXE，并比对长度和 SHA256。把公开验收与已登录账号上传成功分别记到版本记录中。
+
+用户同时要求发布短片时，把确认的分平台链接、版本和可传播的实际模型/窗口画面提供给视频工作流。画面来自浏览器实演时，在投稿文案标明来源。按原作与标志归属提供署名或非官方声明，上传成片前检查片尾和简介。配乐从可用于该平台视频的授权来源取得，保留作者、曲名与来源链接。制作投稿素材和实际投稿分别按用户请求执行。
+
 作者的私有 GitHub 备份与买家领取是不同渠道。私有附件不对普通买家可达时，按当前平台能力配置交付入口，不公开仓库令牌或把私有素材搬到公共技能库。用户账号授权、平台认证、原画改编权和角色/IP 发行权分别判断；遇到售卖/申报问题查当时的官方规则，不在技能里固化价格、粉丝数、销量门槛或法律结论。只在已授权范围执行外部发布，结果不明先回查状态。
 
 Before cleaning a repository, inspect references and package scripts. Archive unused candidates/media locally, confirm hashes, then remove only the authorized tracked content with an ordinary commit. Exclude credentials, caches, dependency runtimes, private databases, logs and generated deliveries from source Git.

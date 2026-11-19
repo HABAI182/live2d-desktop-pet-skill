@@ -28,6 +28,7 @@
 | [验收与交付](skills/live2d-desktop-pet/references/release-validation.md) | 证据层级、少而必要的验证、不同 OS、版本留档与清理规则 |
 | [参考图与来源](skills/live2d-desktop-pet/references/source-provenance.md) | 长离起源文字、后续可见样张、玄翎修图经验和缺失像素边界 |
 | [秧秧制作与纠错案例](skills/live2d-desktop-pet/references/yangyang-case-study.md) | 阶段顺序、反馈到机制、修复证据与未验收范围，具体偏好不泛化为全角色默认 |
+| [浙大娘日用打磨案例](skills/live2d-desktop-pet/references/zju-case-study.md) | 接缝、一次回弹、右键与拖动卡顿、浮显布局、匿名下载校验 |
 
 附带3个Python 3.9+助手，无第三方Python依赖：[只读工程盘点](skills/live2d-desktop-pet/scripts/inspect_pet.py)、[键盘SVG/JSON示意](skills/live2d-desktop-pet/scripts/keyboard_layout.py)、[只读发行校验](skills/live2d-desktop-pet/scripts/verify_delivery.py)。盘点有Git时读取跟踪文件，没有Git时可明确指定模型。
 
@@ -90,7 +91,7 @@ python skills/live2d-desktop-pet/scripts/verify_delivery.py /path/to/delivery /p
 
 ## 许可与版本
 
-原创代码与说明采用MIT，见[LICENSE](LICENSE)；不附带角色图像或授予角色的额外权利。当前版本 `v3.2.1`，已有标签与发行附件保留。变更见[CHANGELOG.md](CHANGELOG.md)。
+原创代码与说明采用 MIT。源码版本 `v3.3.0`，已发布版本和下载入口见上方。[许可](LICENSE) · [变更记录](CHANGELOG.md)
 
 脚本检查：`python -m unittest discover -s tests -v` 和 `python tools/check_package.py`。
 
