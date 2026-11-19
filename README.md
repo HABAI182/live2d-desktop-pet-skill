@@ -4,7 +4,7 @@
 
 目标是制作能日常使用、动作有回应、角色像原图的桌宠，同时明确区分占位素材、可编辑模型、运行时修复、浏览器验证与真正原生验收。
 
-当前发行版 **[v3.4.0](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/tag/v3.4.0)** 增加桌宠宣传片流程，并更新启真案例中的原生录屏、改名发版和旧下载地址验收。调用名为 `$live2d-desktop-pet`，可按任务选择需要的流程。
+当前发行版 **[v3.4.0](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/tag/v3.4.0)** 增加桌宠宣传片流程，并更新「启真」案例中的原生录屏、改名发版和旧下载地址验收。调用名为 `$live2d-desktop-pet`，可按任务选择需要的流程。
 
 [下载 ZIP](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.4.0/live2d-desktop-pet-skill-v3.4.0.zip) · [下载 .skill](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.4.0/live2d-desktop-pet-skill-v3.4.0.skill) · [SHA256 清单](https://github.com/HABAI182/live2d-desktop-pet-skill/releases/download/v3.4.0/SHA256-v3.4.0.json) · [全部版本](https://github.com/HABAI182/live2d-desktop-pet-skill/releases)
 
@@ -29,7 +29,7 @@
 | [桌宠宣传片制作](skills/live2d-desktop-pet/references/promo-video.md) | 录屏、Live2D 近景、节奏、卡顿核对与投稿交付 |
 | [参考图与来源](skills/live2d-desktop-pet/references/source-provenance.md) | 长离起源文字、后续可见样张、玄翎修图经验和缺失像素边界 |
 | [秧秧制作与纠错案例](skills/live2d-desktop-pet/references/yangyang-case-study.md) | 阶段顺序、反馈到机制、修复证据与未验收范围，具体偏好不泛化为全角色默认 |
-| [启真日用打磨案例](skills/live2d-desktop-pet/references/zju-case-study.md) | 接缝、单次回弹、窗口卡顿、宣传片、改名发版与旧链接校验 |
+| [「启真」日用打磨案例](skills/live2d-desktop-pet/references/zju-case-study.md) | 接缝、单次回弹、窗口卡顿、宣传片、改名发版与旧链接校验 |
 
 附带3个Python 3.9+助手，无第三方Python依赖：[只读工程盘点](skills/live2d-desktop-pet/scripts/inspect_pet.py)、[键盘SVG/JSON示意](skills/live2d-desktop-pet/scripts/keyboard_layout.py)、[只读发行校验](skills/live2d-desktop-pet/scripts/verify_delivery.py)。盘点有Git时读取跟踪文件，没有Git时可明确指定模型。
 
@@ -88,7 +88,7 @@ python skills/live2d-desktop-pet/scripts/verify_delivery.py /path/to/delivery /p
 
 技能不会从一张图片自动生成正式 Cubism 绑定。精细原画与网格关键形仍需可编辑源稿、编辑器和实际视觉检查；运行时补丁不能冒称为新的 CMO3 导出。
 
-案例来自 [离火长明](https://github.com/HABAI182/changli-companion)、秧秧玄翎及 [启真](https://github.com/HABAI182/qizhen-companion)的制作过程。按目标项目调整技术与审美判断，秧秧案例公开的是制作方法。
+案例来自 [离火长明](https://github.com/HABAI182/changli-companion)、秧秧玄翎及 [「启真」](https://github.com/HABAI182/qizhen-companion)的制作过程。按目标项目调整技术与审美判断，秧秧案例公开的是制作方法。
 
 ## 许可与版本
 
